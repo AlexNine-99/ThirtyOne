@@ -17,7 +17,6 @@ internal class DeckPiles
     private void Init()
     {
         ReadOnlySpan<Suit> suits = [Suit.Hearts, Suit.Clubs, Suit.Diamonds, Suit.Spades];
-
         foreach (var suit in suits)
         {
             for (int rank = 1; rank <= 13; rank++)
@@ -26,8 +25,7 @@ internal class DeckPiles
             }
         }
         Shuffle();
-
-        _discardPile.Add(DrawCard());
+        _discardPile.Add(Draw());
     }
 
     public void Shuffle()
@@ -39,7 +37,7 @@ internal class DeckPiles
         }
     }
 
-    public Card DrawCard()
+    public Card Draw()
     {
         if (_drawPile.Count == 0)
         {
@@ -53,5 +51,15 @@ internal class DeckPiles
         var card = _drawPile[0];
         _drawPile.RemoveAt(0);
         return card;
+    }
+
+    public void Discard(Card card)
+    {
+        _discardPile.Add(card);
+    }
+
+    public void Discard(List<Card> cards)
+    {
+        _discardPile.AddRange(cards);
     }
 }

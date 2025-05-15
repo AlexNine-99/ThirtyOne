@@ -22,16 +22,24 @@ internal class Game
 
     private bool Progress()
     {
-        for (int i = 0; i < 104; i ++)
-        {
-            Console.WriteLine($"{i}: {(_deckPiles).DrawCard()}");
-        }
-
+        DrawTest();
         foreach (var player in _players)
         {
-            Console.WriteLine($"{player.Name} has {player.Chips} chips.");
+            _deckPiles.Discard(player.Cards);
         }
-
+        DrawTest();
         return false;
+    }
+
+    private void DrawTest()
+    {
+        for (int i = 0; i < 52; i++)
+        {
+            var card = _deckPiles.Draw();
+
+            var player = _players[i % _players.Count];
+            player.Cards.Add(card);
+            Console.WriteLine($"{player.Name} drew {card}");
+        }
     }
 }
