@@ -21,6 +21,19 @@ internal class Game
         {
             _players[i % _players.Count].Cards.Add(_deck.Draw());
         }
+        foreach (var player in _players)
+        {
+            var cardsStr = "";
+            foreach (var card in player.Cards)
+            {
+                cardsStr += $"{card}";
+                if (player.Cards.IndexOf(card) != player.Cards.Count - 1)
+                {
+                    cardsStr += ", ";
+                }
+            }
+            Console.WriteLine($"{player.Name}: {cardsStr}");
+        }
         while (Progress());
     }
 
