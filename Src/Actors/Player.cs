@@ -1,6 +1,6 @@
-﻿using ThirtyOne.Items;
+﻿using ThirtyOne.Src.Items;
 
-namespace ThirtyOne.Actors;
+namespace ThirtyOne.Src.Actors;
 
 internal class Player(String name)
 {

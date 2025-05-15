@@ -1,14 +1,14 @@
-﻿using ThirtyOne.Items;
+﻿using ThirtyOne.Src.Items;
 
-namespace ThirtyOne.Actors;
+namespace ThirtyOne.Src.Actors;
 
-internal class DeckPiles
+internal class Deck
 {
     private List<Card> _drawPile = [];
     private List<Card> _discardPile = [];
     private readonly Random _rng = new();
 
-    public DeckPiles()
+    public Deck()
     {
         Init();
         Shuffle();

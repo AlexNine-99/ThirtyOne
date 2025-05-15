@@ -1,4 +1,4 @@
-﻿namespace ThirtyOne.Items;
+﻿namespace ThirtyOne.Src.Items;
 
 internal enum Suit
 {
