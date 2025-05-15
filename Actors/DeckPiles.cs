@@ -43,6 +43,10 @@ internal class DeckPiles
     {
         if (_drawPile.Count == 0)
         {
+            if (_discardPile.Count == 0)
+            {
+                throw new Exception("No cards left in the deck.");
+            }
             (_drawPile, _discardPile) = (_discardPile, _drawPile);
             Shuffle();
         }

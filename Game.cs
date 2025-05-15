@@ -22,9 +22,9 @@ internal class Game
 
     private bool Progress()
     {
-        for (int i = 0; i <= 41; i ++)
+        for (int i = 0; i < 104; i ++)
         {
-            Console.WriteLine((_deckPiles).DrawCards(2));
+            Console.WriteLine($"{i}: {(_deckPiles).DrawCard()}");
         }
 
         foreach (var player in _players)
